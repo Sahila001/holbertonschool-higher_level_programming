@@ -34,4 +34,4 @@ def matrix_divided(matrix, div):
             )
 
     # Return new divided matrix rounded to 2 decimals
-    return [[round(elem / div, 2) for elem in row] for row in matrix
+    return [[round(elem / div, 2) for elem in row] for row in matrix]
