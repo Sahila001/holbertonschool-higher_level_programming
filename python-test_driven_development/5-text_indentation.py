@@ -17,11 +17,11 @@ def text_indentation(text):
     for i in range(length):
         if text[i] in end_chars:
             line = text[start:i + 1].strip()
-            print(line, end="\n\n")
+            print(line)
             start = i + 1
 
     # Print any remaining text after the last punctuation
     if start < length:
         remaining = text[start:].strip()
         if remaining:
-            print(remaining, end="")
+            print(remaining)
