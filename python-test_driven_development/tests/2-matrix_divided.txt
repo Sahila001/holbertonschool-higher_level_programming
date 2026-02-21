@@ -13,8 +13,14 @@ Check div as float(inf):
 >>> matrix_divided([[1, 2], [3, 4]], float('inf'))
 [[0.0, 0.0], [0.0, 0.0]]
 
-Check matrix not a list:
->>> matrix_divided(123, 3)
+Check div as string:
+>>> matrix_divided([[1, 2], [3, 4]], "3")
+Traceback (most recent call last):
+    ...
+TypeError: div must be a number
+
+Check matrix not a list of lists:
+>>> matrix_divided([1, 2, 3], 3)
 Traceback (most recent call last):
     ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
