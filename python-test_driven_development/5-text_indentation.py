@@ -1,27 +1,16 @@
 #!/usr/bin/python3
-"""
-Module that prints a text with 2 new lines after '.', '?' and ':'.
-"""
+"""Module for text_indentation function."""
 
 
 def text_indentation(text):
-    """Prints text with 2 new lines after '.', '?' and ':'"""
-
+    """Prints a text with 2 new lines after '.', '?' and ':'."""
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    end_chars = {'.', '?', ':'}
-    start = 0
-    length = len(text)
+    # Xüsusi işarələrdən sonra sətirbaşı edirik
+    for char in ".:?":
+        text = (char + "\n\n").join(
+            [line.strip(" ") for line in text.split(char)]
+        )
 
-    for i in range(length):
-        if text[i] in end_chars:
-            line = text[start:i + 1].strip()
-            print(line, end="\n\n")
-            start = i + 1
-
-    # Print any remaining text after the last punctuation
-    if start < length:
-        remaining = text[start:].strip()
-        if remaining:
-            print(remaining, end="")
+    print("{}".format(text), end="")
