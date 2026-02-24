@@ -1,20 +1,23 @@
 #!/usr/bin/python3
+"""Module that defines a Rectangle class"""
+
+
 class Rectangle:
     """Class that defines a rectangle"""
 
     def __init__(self, width=0, height=0):
-        """Initialize rectangle"""
+        """Initialize rectangle with optional width and height"""
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """Get width"""
+        """Retrieve the width"""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Set width with validation"""
+        """Set the width with validation"""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -23,12 +26,12 @@ class Rectangle:
 
     @property
     def height(self):
-        """Get height"""
+        """Retrieve the height"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Set height with validation"""
+        """Set the height with validation"""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
