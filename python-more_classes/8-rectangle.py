@@ -3,7 +3,9 @@
 
 
 class Rectangle:
-    """Class that defines a rectangle with instance counter, print_symbol, and comparison"""
+    """Class that defines a rectangle with instance counter, print_symbol,
+    and comparison method
+    """
 
     number_of_instances = 0
     print_symbol = "#"
