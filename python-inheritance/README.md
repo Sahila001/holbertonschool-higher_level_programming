@@ -1,1 +1,1 @@
-Python inheritance tasks
+Python inheritance - MyList class
