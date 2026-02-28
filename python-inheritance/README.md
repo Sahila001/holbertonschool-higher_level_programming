@@ -1,1 +1,1 @@
-Python inheritance - MyList class
+Python inheritance - is_same_class function
