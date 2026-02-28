@@ -1,7 +1,6 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Module for Shape, Circle, Rectangle classes and shape_info function."""
 from abc import ABC, abstractmethod
-import math
 
 
 class Shape(ABC):
@@ -27,11 +26,14 @@ class Circle(Shape):
 
     def area(self):
         """Calculates circle area."""
-        return math.pi * (self.radius ** 2)
+        # math.pi əvəzinə öz dəyərimizi təyin edirik
+        pi = 3.141592653589793
+        return pi * (self.radius ** 2)
 
     def perimeter(self):
         """Calculates circle perimeter."""
-        return 2 * math.pi * self.radius
+        pi = 3.141592653589793
+        return 2 * pi * self.radius
 
 
 class Rectangle(Shape):
