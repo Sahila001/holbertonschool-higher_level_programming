@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-"""Script that lists states matching a given name"""
+"""Lists states that match the given argument"""
 
 import MySQLdb
 import sys
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    state_name = sys.argv[4]
+    state = sys.argv[4]
 
     db = MySQLdb.connect(
         host="localhost",
@@ -19,15 +19,15 @@ if __name__ == "__main__":
         db=database
     )
 
-    cursor = db.cursor()
+    cur = db.cursor()
 
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY states.id ASC".format(state_name)
-    cursor.execute(query)
+    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state)
+    cur.execute(query)
 
-    rows = cursor.fetchall()
+    rows = cur.fetchall()
 
     for row in rows:
         print(row)
 
-    cursor.close()
+    cur.close()
     db.close()
