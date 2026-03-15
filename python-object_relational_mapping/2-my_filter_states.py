@@ -1,33 +1,30 @@
 #!/usr/bin/python3
-"""Lists states that match the given argument"""
+"""Filter states by user input"""
 
 import MySQLdb
 import sys
 
-
 if __name__ == "__main__":
-    username = sys.argv[1]
+    # Argumentləri götür
+    user = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    state = sys.argv[4]
+    state_name = sys.argv[4]
 
-    db = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=username,
-        passwd=password,
-        db=database
-    )
+    # DB-ə qoşul
+    db = MySQLdb.connect(host="localhost", port=3306,
+                         user=user, passwd=password, db=database)
 
-    cur = db.cursor()
+    cursor = db.cursor()
 
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state)
-    cur.execute(query)
+    # SQL sorğunu format ilə yarat (holberton tələbi)
+    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
 
-    rows = cur.fetchall()
+    cursor.execute(query)
+    rows = cursor.fetchall()
 
     for row in rows:
         print(row)
 
-    cur.close()
+    cursor.close()
     db.close()
